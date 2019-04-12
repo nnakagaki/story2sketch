@@ -81,6 +81,8 @@ export default class Story2sketch {
       this.stories = await getStorybook(this.browser, this.url);
     }
 
+    console.log(this.stories);
+
     if (this.storyKindFilter) {
       let filteredStories = [];
 
