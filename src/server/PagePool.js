@@ -16,7 +16,9 @@ export default class PagePool {
 
   async init() {
     for (let i = 0; i < this.numPages; i++) {
-      this.freePages.push(await this.browser.newPage());
+      const page = await this.browser.newPage();
+      this.freePages.push(page);
+      page.on('console', msg => console.log('PAGE LOG:', msg.text()));
     }
   }
 
