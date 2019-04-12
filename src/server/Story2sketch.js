@@ -107,6 +107,8 @@ export default class Story2sketch {
 
     const page = await this.browser.newPage();
 
+    page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+
     await page.goto(this.url, {
       waitUntil: "networkidle2"
     });
@@ -207,6 +209,8 @@ export default class Story2sketch {
       // JSON.parse + JSON.stringify hack was originally used until
       // https://github.com/GoogleChrome/puppeteer/issues/1510 was fixed, but
       // it still results in better performance.
+
+
       const symbolJson = await page.evaluate(`
         JSON.stringify(
           page2layers
