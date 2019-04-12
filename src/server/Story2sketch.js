@@ -107,7 +107,7 @@ export default class Story2sketch {
 
     const page = await this.browser.newPage();
 
-    page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+    page.on('console', msg => console.log('PAGE LOG:', msg));
 
     await page.goto(this.url, {
       waitUntil: "networkidle2"
