@@ -82,10 +82,10 @@ export default class Story2sketch {
     }
 
     if (this.storyKindFilter) {
-      const filteredStories = [];
+      let filteredStories = [];
 
       this.storyKindFilter.forEach((filter) => {
-        filteredStories.concat(this.stories.filter((story) => story.kind.match(filter)))
+        filteredStories = filteredStories.concat(this.stories.filter((story) => story.kind.match(filter)))
       });
       this.stories = filteredStories;
     }
