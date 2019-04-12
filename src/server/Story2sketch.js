@@ -34,6 +34,7 @@ export default class Story2sketch {
     verbose = false,
     fixPseudo = false,
     stories,
+    storyKindFilter,
     puppeteerOptions = {},
     removePreviewMargin = true
   }) {
@@ -45,6 +46,7 @@ export default class Story2sketch {
     this.viewports = viewports;
     this.querySelector = querySelector;
     this.stories = stories;
+    this.storyKindFilter = storyKindFilter;
     this.verbose = verbose;
     this.fixPseudo = fixPseudo;
     this.removePreviewMargin = removePreviewMargin === true;
@@ -77,6 +79,10 @@ export default class Story2sketch {
       }
 
       this.stories = await getStorybook(this.browser, this.url);
+    }
+
+    if (this.storyKindFilter) {
+      this.stories = this.stories.filter((story) => story.kind.match(this.storyKindFilter))
     }
 
     console.log(this.stories);
