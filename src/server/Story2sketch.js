@@ -79,6 +79,8 @@ export default class Story2sketch {
       this.stories = await getStorybook(this.browser, this.url);
     }
 
+    console.log(this.stories);
+
     this.reset();
 
     this.pagePool = await this.createPagePool();
