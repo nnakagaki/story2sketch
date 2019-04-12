@@ -117,6 +117,9 @@ export const getSymbol = ({
     getRectangleName: getNodeName
   });
 
+  console.log('x', x);
+  console.log('y', y);
+
   const symbol = new SymbolMaster({ x, y });
 
   symbol.setName(name);
